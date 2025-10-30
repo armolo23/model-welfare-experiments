@@ -1,0 +1,135 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+reflexion_env/
+
+# PyInstaller
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+results/
+logs/
+*.log
+welfare_signals.log
+pipeline_execution.log
+
+# Experiment outputs
+experiment_results/*.json
+experiment_results/*.csv
+!experiment_results/README.md
+
+# Analysis outputs
+analysis_plots/*.png
+analysis_plots/*.pdf
+analysis_plots/*.svg
+!analysis_plots/README.md
+
+# Data caches
+.cache/
+data/cache/
+*.pkl
+*.pickle
+
+# Model caches
+.transformers_cache/
+.sentence_transformers/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Checkpoints
+checkpoints/
+*.ckpt
+
+# Large data files
+*.h5
+*.hdf5
+*.tar.gz
+*.zip
+*.rar
+
+# API keys and secrets (extra safety)
+secrets.yaml
+secrets.json
+credentials.json
+*.key
+*.pem
