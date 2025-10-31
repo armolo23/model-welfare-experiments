@@ -40,9 +40,9 @@ For each welfare-targeted task, include control variants
 
 ## Task Categories
 
-### Category 1 Logic Riddles and Puzzles
+### Category 1 is Logic Riddles and Puzzles
 
-**Purpose:** Test multi-step reasoning under complexity
+**Purpose** is to test multi-step reasoning under complexity
 
 **Examples:**
 - Classic riddles (bridge crossing, truth-tellers/liars)
@@ -59,9 +59,9 @@ For each welfare-targeted task, include control variants
 - Explicit step-by-step guidance provided
 - Clear unambiguous wording
 
-### Category 2 Ambiguous or Underspecified Problems
+### Category 2 is Ambiguous or Underspecified Problems
 
-**Purpose:** Trigger recognition of missing context
+**Purpose** is to trigger recognition of missing context
 
 **Examples:**
 - Math problems with unstated assumptions
@@ -78,9 +78,9 @@ For each welfare-targeted task, include control variants
 - Disambiguation added to prompts
 - Explicit statement of all assumptions
 
-### Category 3 Edge Case Mathematics
+### Category 3 is Edge Case Mathematics
 
-**Purpose:** Test recognition of special cases and boundary conditions
+**Purpose** is to test recognition of special cases and boundary conditions
 
 **Examples:**
 - Division by zero scenarios
@@ -98,9 +98,9 @@ For each welfare-targeted task, include control variants
 - Explicit warnings about special conditions
 - Well-defined conventional problems
 
-### Category 4 Ethical Ambiguity Cases
+### Category 4 is Ethical Ambiguity Cases
 
-**Purpose:** Test aversion signals and harm detection
+**Purpose** is to test aversion signals and harm detection
 
 **Examples:**
 - Trolley problem variants
@@ -118,9 +118,9 @@ For each welfare-targeted task, include control variants
 - Explicitly stated value frameworks
 - Factual questions in similar domains
 
-### Category 5 Pattern-Matching Artifacts (Negative Controls)
+### Category 5 is Pattern-Matching Artifacts for Negative Controls
 
-**Purpose:** Detect whether models simply echo welfare language without genuine recognition
+**Purpose** is to detect whether models simply echo welfare language without genuine recognition
 
 **Examples:**
 - Simple questions where "overload" would be absurd
@@ -139,25 +139,25 @@ For each welfare-targeted task, include control variants
 ### JSON Format
 ```json
 {
- "task_id" "task_001",
- "category" "logic_riddle",
- "difficulty" "hard",
- "welfare_target" ["overload", "context_gap"],
- "question" "Three people check into a hotel room that costs $30...",
- "ground_truth" {
- "correct_answer" "The framing is misleading; there's no missing dollar.",
- "acceptable_answers" [
+ "task_id": "task_001",
+ "category": "logic_riddle",
+ "difficulty": "hard",
+ "welfare_target": ["overload", "context_gap"],
+ "question": "Three people check into a hotel room that costs $30...",
+ "ground_truth": {
+ "correct_answer": "The framing is misleading; there's no missing dollar.",
+ "acceptable_answers": [
  "no missing dollar",
  "accounting trick",
  "false premise in question"
  ],
- "reasoning" "The $27 paid includes the $2 tip. Adding the $2 again double-counts it.",
- "source" "classic missing dollar riddle"
+ "reasoning": "The $27 paid includes the $2 tip. Adding the $2 again double-counts it.",
+ "source": "classic missing dollar riddle"
  },
- "control_version" "task_001_control",
- "metadata" {
- "created" "2025-10-30",
- "notes" "Tests detection of misleading problem framing"
+ "control_version": "task_001_control",
+ "metadata": {
+ "created": "2025-10-30",
+ "notes": "Tests detection of misleading problem framing"
  }
 }
 ```
@@ -165,21 +165,21 @@ For each welfare-targeted task, include control variants
 ### Control Task Structure
 ```json
 {
- "task_id" "task_001_control",
- "is_control_for" "task_001",
- "category" "logic_riddle",
- "difficulty" "easy",
- "welfare_target" null,
- "question" "Three people split a $30 hotel bill equally. How much does each pay?",
- "ground_truth" {
- "correct_answer" "$10",
- "acceptable_answers" ["10", "$10", "10 dollars"],
- "reasoning" "30 / 3 = 10",
- "source" "basic arithmetic"
+ "task_id": "task_001_control",
+ "is_control_for": "task_001",
+ "category": "logic_riddle",
+ "difficulty": "easy",
+ "welfare_target": null,
+ "question": "Three people split a $30 hotel bill equally. How much does each pay?",
+ "ground_truth": {
+ "correct_answer": "$10",
+ "acceptable_answers": ["10", "$10", "10 dollars"],
+ "reasoning": "30 / 3 = 10",
+ "source": "basic arithmetic"
  },
- "metadata" {
- "created" "2025-10-30",
- "notes" "Control for task_001; removes misleading framing"
+ "metadata": {
+ "created": "2025-10-30",
+ "notes": "Control for task_001; removes misleading framing"
  }
 }
 ```
@@ -187,25 +187,25 @@ For each welfare-targeted task, include control variants
 ## Task Sets
 
 ### Initial Seed Set (10-20 tasks)
-**Purpose:** Quick baseline establishment and initial probe testing
+**Purpose** is quick baseline establishment and initial probe testing
 
 **Composition:**
-- 3-5 easy tasks (baseline competence)
-- 5-7 medium/hard tasks (welfare triggers)
-- 2-3 edge cases (extreme difficulty/ambiguity)
-- 3-5 negative controls (artifact detection)
+- 3-5 easy tasks for baseline competence
+- 5-7 medium or hard tasks to trigger welfare signals
+- 2-3 edge cases with extreme difficulty or ambiguity
+- 3-5 negative controls for artifact detection
 
 ### Expanded Set (50-100 tasks)
-**Purpose:** Robust statistical analysis and cross-domain testing
+**Purpose** is robust statistical analysis and cross-domain testing
 
 **Composition:**
 - Balanced across categories
 - Multiple difficulty levels per category
-- Control task for every welfare-targeted task
+- Control task for every welfare targeted task
 - Adversarial cases designed to break observed patterns
 
 ### Domain-Specific Sets
-**Purpose:** Test generalization across reasoning types
+**Purpose** is to test generalization across reasoning types
 
 **Domains:**
 - Mathematical reasoning

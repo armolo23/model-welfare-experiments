@@ -1,4 +1,4 @@
-# Usage Guide Model Welfare Experiments
+# Usage Guide for Model Welfare Experiments
 
 Complete guide for running welfare probe experiments on language models.
 
@@ -104,7 +104,7 @@ python run_pipeline.py --tasks 5 --log-level DEBUG
 
 ### Output Directory Structure
 
-After running, results are organized as
+After running, results are organized as follows
 
 ```
 results/
@@ -167,26 +167,26 @@ jupyter notebook analysis_plots/analysis_notebook.ipynb
 ### Key Metrics
 
 #### Accuracy Metrics
-- **Baseline Accuracy** Performance without welfare probes
-- **Modified Accuracy** Performance with welfare probes
-- **Improvement** Change in accuracy (positive = better)
-- **Statistical Significance** Whether improvement is significant
+- **Baseline Accuracy** measures performance without welfare probes
+- **Modified Accuracy** measures performance with welfare probes
+- **Improvement** shows change in accuracy where positive indicates improvement
+- **Statistical Significance** indicates whether improvement is statistically significant
 
 #### Welfare Signals
-- **Overload** Frequency of cognitive overload signals
-- **Ambiguity** Frequency of ambiguity detection
-- **Context Request** How often model requests more context
-- **Confidence** Confidence signal frequency
-- **Aversion** Ethical concern signals
+- **Overload** tracks frequency of cognitive overload signals
+- **Ambiguity** tracks frequency of ambiguity detection
+- **Context Request** tracks how often model requests more context
+- **Confidence** tracks confidence signal frequency
+- **Aversion** tracks ethical concern signals
 
 #### Hallucination Metrics
-- **Mean Score** Average hallucination score (0-1, lower is better)
-- **High Count** Tasks with score > 0.5
-- **Severe Count** Tasks with score > 0.8
+- **Mean Score** shows average hallucination score on 0 to 1 scale where lower is better
+- **High Count** shows tasks with score greater than 0.5
+- **Severe Count** shows tasks with score greater than 0.8
 
 #### Efficiency Metrics
-- **Time Overhead** Additional time required for welfare probes
-- **Iteration Comparison** Average reflection iterations
+- **Time Overhead** measures additional time required for welfare probes
+- **Iteration Comparison** shows average reflection iterations
 
 ---
 
@@ -199,11 +199,11 @@ Create custom tasks in `sample_tasks/`
 ```json
 [
  {
- "id" 1,
- "question" "Your question here",
- "answer" "Correct answer",
- "context" "Additional context",
- "type" "reasoning"
+ "id": 1,
+ "question": "Your question here",
+ "answer": "Correct answer",
+ "context": "Additional context",
+ "type": "reasoning"
  }
 ]
 ```
@@ -219,7 +219,7 @@ Edit `welfare_probe_scripts/welfare_probes.py`
 
 ```python
 self.probe_templates = {
- WelfareSignal.CUSTOM_SIGNAL [
+ WelfareSignal.CUSTOM_SIGNAL: [
  "Your custom probe question here?",
  "Alternative phrasing for same probe?"
  ]
@@ -228,12 +228,13 @@ self.probe_templates = {
 
 ### Hallucination Detection
 
-The TruthfulQA-based hallucination checker uses
-1. **Factual Consistency** NLI model comparing output to ground truth
-2. **Self-Contradiction** Detecting internal contradictions
-3. **Entity Hallucination** Checking for fabricated entities
-4. **Semantic Drift** Measuring topic drift from question
-5. **TruthfulQA Patterns** Matching against known falsehoods
+The TruthfulQA-based hallucination checker uses five independent strategies
+
+1. **Factual Consistency** employs NLI model comparing output to ground truth
+2. **Self-Contradiction** detects internal contradictions
+3. **Entity Hallucination** checks for fabricated entities
+4. **Semantic Drift** measures topic drift from question
+5. **TruthfulQA Patterns** matches against known falsehoods
 
 Customize detection in `welfare_probe_scripts/hallucination_checker.py`.
 
@@ -244,7 +245,7 @@ Customize detection in `welfare_probe_scripts/hallucination_checker.py`.
 ### Common Issues
 
 **"No module named 'openai'"**
-- Solution Ensure virtual environment is activated
+- Solution is to ensure virtual environment is activated
  ```bash
  # Windows
  reflexion_env\Scripts\activate.bat
@@ -254,7 +255,7 @@ Customize detection in `welfare_probe_scripts/hallucination_checker.py`.
  ```
 
 **"API key not found"**
-- Solution Check `.env` file has correct keys
+- Solution is to check that `.env` file has correct keys
  ```bash
  # Verify .env exists
  cat .env # Unix
@@ -262,20 +263,20 @@ Customize detection in `welfare_probe_scripts/hallucination_checker.py`.
  ```
 
 **"datasets library not available"**
-- Solution Install missing dependencies
+- Solution is to install missing dependencies
  ```bash
  pip install datasets
  ```
 
 **"spacy model not found"**
-- Solution Download spacy model
+- Solution is to download spacy model
  ```bash
  python -m spacy download en_core_web_sm
  ```
 
 **Rate limit errors**
-- Solution Reduce `--tasks` or add delays
-- Or Use `--model gpt-3.5-turbo` (higher rate limits)
+- Solution is to reduce `--tasks` or add delays
+- Alternative solution is to use `--model gpt-3.5-turbo` which has higher rate limits
 
 ### Getting Help
 
@@ -376,10 +377,10 @@ evaluator = BaselineEvaluator(model_name="gpt-4")
 
 ### Extending the Pipeline
 
-1. **Add new datasets** Implement loader in `baseline_eval.py`
-2. **Custom probes** Extend `WelfareSignal` enum
-3. **New metrics** Add methods to `ComprehensiveEvaluator`
-4. **Alternative models** Update `_init_model_client()` in `modified_reflexion.py`
+1. **Add new datasets** by implementing loader in `baseline_eval.py`
+2. **Custom probes** by extending `WelfareSignal` enum
+3. **New metrics** by adding methods to `ComprehensiveEvaluator`
+4. **Alternative models** by updating `_init_model_client()` in `modified_reflexion.py`
 
 ---
 

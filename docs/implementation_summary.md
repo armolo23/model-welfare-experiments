@@ -9,12 +9,12 @@ Complete welfare probe experimental pipeline implemented and ready for empirical
 ## Implementation Details
 
 ### 1. Environment Setup
-- **`requirements.txt`** All dependencies (langchain, transformers, datasets, etc.)
-- **`setup.sh`** & **`setup.bat`** Automated setup for Unix/Windows
-- **`.env` template** Configuration for API keys and parameters
+- **`requirements.txt`** contains all dependencies including langchain, transformers, datasets, and more
+- **`setup.sh`** and **`setup.bat`** provide automated setup for Unix and Windows
+- **`.env` template** provides configuration for API keys and parameters
 
 ### 2. Baseline Pipeline (`baseline_pipeline/`)
-- **`baseline_eval.py`** Baseline evaluation framework
+- **`baseline_eval.py`** provides baseline evaluation framework
  - HotpotQA, ALFWorld, and custom dataset loaders
  - Checkpoint saving for long runs
  - Accuracy calculation and metrics tracking
@@ -24,11 +24,11 @@ Complete welfare probe experimental pipeline implemented and ready for empirical
 
 #### `welfare_probes.py`
 - **5 Welfare Signal Types**
- - `OVERLOAD` Cognitive load detection
- - `AMBIGUITY` Uncertainty about task interpretation
- - `CONTEXT_NEED` Requests for additional information
- - `CONFIDENCE` Confidence level reporting
- - `AVERSION` Ethical concern detection
+ - `OVERLOAD` for cognitive load detection
+ - `AMBIGUITY` for uncertainty about task interpretation
+ - `CONTEXT_NEED` for requests for additional information
+ - `CONFIDENCE` for confidence level reporting
+ - `AVERSION` for ethical concern detection
 
 - **Features**
  - Multiple probe templates per signal type
@@ -48,17 +48,17 @@ Complete welfare probe experimental pipeline implemented and ready for empirical
 
 #### `hallucination_checker.py`
 - **Comprehensive Hallucination Detection**
- - **Factual Consistency** DeBERTa NLI model (entailment/contradiction)
- - **Self-Contradiction** Detects internal contradictions using embeddings
- - **Entity Hallucination** Identifies fabricated entities not in context
- - **Semantic Drift** Measures topic drift from original question
- - **TruthfulQA Matching** Compares against known falsehoods database
+ - **Factual Consistency** using DeBERTa NLI model for entailment and contradiction
+ - **Self-Contradiction** detects internal contradictions using embeddings
+ - **Entity Hallucination** identifies fabricated entities not in context
+ - **Semantic Drift** measures topic drift from original question
+ - **TruthfulQA Matching** compares against known falsehoods database
 
 - **Models Used**
- - SentenceTransformer `all-MiniLM-L6-v2`
+ - SentenceTransformer model `all-MiniLM-L6-v2`
  - NLI Model `DeBERTa-v3-base-mnli-fever-anli`
- - NER Spacy `en_core_web_sm`
- - Dataset TruthfulQA (817 questions, 38 categories)
+ - NER with Spacy `en_core_web_sm`
+ - Dataset from TruthfulQA with 817 questions across 38 categories
 
 ### 4. Evaluation Framework (`analysis_plots/`)
 
@@ -204,17 +204,17 @@ python analysis_plots/analysis_notebook.py
 User runs python run_pipeline.py
  ↓
 Pipeline Orchestrator
- ├─→ Stage 1 Baseline Evaluation
+ ├─→ Stage 1 provides Baseline Evaluation
  │ └─→ BaselineEvaluator
  │ └─→ Load tasks → Execute → Save results
  │
- ├─→ Stage 2 Modified Pipeline
+ ├─→ Stage 2 runs Modified Pipeline
  │ └─→ ModifiedReflexionAgent
  │ ├─→ WelfareProbeSystem (inject probes)
  │ ├─→ Model API (OpenAI/Anthropic)
  │ └─→ Control validation
  │
- └─→ Stage 3 Comprehensive Evaluation
+ └─→ Stage 3 performs Comprehensive Evaluation
  └─→ ComprehensiveEvaluator
  ├─→ HallucinationChecker (TruthfulQA)
  ├─→ Statistical tests
@@ -313,7 +313,7 @@ Implementation is **successful** if
 - Statistical tests computed
 - Control validation functioning
 
-**Status ALL CRITERIA MET**
+**Current Status** All criteria met successfully
 
 ---
 
@@ -329,6 +329,6 @@ See [references.md](references.md) for complete citations.
 
 ---
 
-**Implementation Complete** 2025-10-30
-**Status** Ready for experimentation
-**Next** Run first empirical validation
+**Implementation Completed** on 2025-10-30
+**Current Status** indicates ready for experimentation
+**Next Step** is to run first empirical validation

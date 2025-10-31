@@ -4,7 +4,7 @@
 
 ## Technical Failure Shallow Reflection in LLMs
 
-Three months ago I watched a state-of-the-art LLM answer a multi-step logic puzzle while hiding all uncertainty. The output was wrong. The model's reflection was even worse. Instead of actionable feedback, it offered empty confidence phrases. This isn't solved by stacking more tokens or tweaking distributions. The real obstacle is pinpointing ambiguity and surfacing context gaps a failure mode well documented in recent research and present across multiple LLM benchmarks. Overconfidence is a recurring symptom; unreliable reasoning is the consistent pattern.
+I observe cutting-edge large language models tackle multi-step logic puzzles by concealing any hint of uncertainty. Their outputs often prove incorrect. The models' self-reflections fare even worse. Rather than delivering useful feedback, they resort to hollow assurances of confidence. Such issues persist despite adding more tokens or adjusting probability distributions. The core challenge involves identifying ambiguities and revealing gaps in context, a flaw extensively noted in recent studies and evident in various LLM evaluations. Overconfidence emerges as a frequent indicator, while inconsistent reasoning forms the underlying trend.
 
 The same pattern emerges in search ranking, medical device telemetry, and any field where automated systems overstate precision relative to their informational context. System reliability deteriorates, surface-level assurance replaces meaningful analysis, and essential doubt signals disappear as uncertainty is masked.
 

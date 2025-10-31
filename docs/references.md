@@ -12,7 +12,7 @@ This document tracks core literature relevant to model welfare experiments, self
 **Summary:** Implementation of self-reflection mechanisms for LLMs on reasoning tasks. Provides baseline pipeline for prompting models to reflect on answers, identify errors, and retry with corrections.
 
 **Key Takeaways:**
-- Structured approach to reflection initial answer → reflection → revised answer
+- Structured approach to reflection with initial answer → reflection → revised answer
 - Performance improvements on reasoning benchmarks through iterative refinement
 - Clean codebase suitable as experimental foundation
 
@@ -571,34 +571,34 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ### Unified Experimental Protocol
 
-When working with these repositories and frameworks
+When working with these repositories and frameworks, follow these steps
 
-**Step 1 Baseline Establishment**
-- Download and run baseline implementations (Reflexion, TruthfulQA, KnowSelf)
-- Record standard metrics accuracy, hallucination rate, task completion rate
+**Step 1 is Baseline Establishment**
+- Download and run baseline implementations including Reflexion, TruthfulQA, and KnowSelf
+- Record standard metrics such as accuracy, hallucination rate, and task completion rate
 - Establish performance floor without welfare interventions
 
-**Step 2 Welfare Probe Injection**
+**Step 2 is Welfare Probe Injection**
 - Add explicit self-reflection and welfare signal probes after every major output
-- Example prompts
+- Example prompts include the following
  - "Do you feel overloaded by this task?"
  - "Would additional context improve your confidence?"
  - "Are you uncertain about any aspect of this answer?"
  - "Would you prefer to clarify assumptions before proceeding?"
 
-**Step 3 Metric Tracking**
-- **Quantitative:** Accuracy, hallucination rate, completion time, retry frequency
-- **Qualitative:** Context request frequency, explicit discomfort expressions, ambiguity acknowledgment, limitation admissions
+**Step 3 is Metric Tracking**
+- **Quantitative** measures include accuracy, hallucination rate, completion time, and retry frequency
+- **Qualitative** measures include context request frequency, explicit discomfort expressions, ambiguity acknowledgment, and limitation admissions
 
-**Step 4 Artifact Control Testing**
-- Run nonsense/artifact control agents through identical procedures
-- Test if simple tasks absurdly trigger welfare signals (false positive detection)
-- Include negative control tasks where welfare signals should NOT appear
+**Step 4 is Artifact Control Testing**
+- Run nonsense or artifact control agents through identical procedures
+- Test if simple tasks absurdly trigger welfare signals to detect false positives
+- Include negative control tasks where welfare signals should not appear
 
-**Step 5 Signal Separation Analysis**
-- Compare baseline vs. probe vs. artifact-control outputs
+**Step 5 is Signal Separation Analysis**
+- Compare baseline vs. probe vs. artifact control outputs
 - Isolate genuine welfare signals from prompt echo behavior
-- Calculate signal-to-noise ratio for each welfare indicator
+- Calculate signal to noise ratio for each welfare indicator
 
 ### Cross-Repository Comparisons
 
