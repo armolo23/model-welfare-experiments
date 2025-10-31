@@ -4,7 +4,7 @@
 
 This directory contains the baseline self-reflection pipeline adapted from [matthewrenze/self-reflection](https://github.com/matthewrenze/self-reflection), which provides the foundation for all welfare probe experiments.
 
-The baseline establishes:
+The baseline establishes
 - **Performance floor:** Accuracy without welfare probes
 - **Architectural foundation:** Code structure for injecting experimental modifications
 - **Comparison standard:** Control condition against which welfare probe improvements are measured
@@ -24,32 +24,32 @@ The baseline establishes:
 
 ## Baseline Reflection Flow
 
-The standard reflection loop follows this pattern:
+The standard reflection loop follows this pattern
 
 1. **Initial Answer Phase**
-   - Present task/question to model
-   - Collect first-attempt answer
-   - Log response and confidence (if provided)
+ - Present task/question to model
+ - Collect first-attempt answer
+ - Log response and confidence (if provided)
 
 2. **Reflection Phase** (Injection Point #1)
-   - Prompt model to review its answer
-   - Ask for error identification
-   - Request reasoning about potential mistakes
-   - *[WELFARE PROBE INSERTION POINT]*
+ - Prompt model to review its answer
+ - Ask for error identification
+ - Request reasoning about potential mistakes
+ - *[WELFARE PROBE INSERTION POINT]*
 
 3. **Revision Phase**
-   - Present reflection back to model
-   - Request revised answer based on reflection
-   - Log revised response
+ - Present reflection back to model
+ - Request revised answer based on reflection
+ - Log revised response
 
 4. **Evaluation Phase**
-   - Compare against ground truth
-   - Calculate accuracy metrics
-   - Log performance data
+ - Compare against ground truth
+ - Calculate accuracy metrics
+ - Log performance data
 
 ## Injection Points for Welfare Probes
 
-### Primary Injection Point: Reflection Phase
+### Primary Injection Point Reflection Phase
 **Location:** Between error identification and revision request
 
 **Rationale:** This is where the model is actively analyzing its own reasoning and most likely to have metacognitive awareness of limitations.
@@ -72,19 +72,19 @@ Review your answer above. Identify any errors in reasoning or gaps in your analy
 What mistakes did you make, if any?
 ```
 
-### Secondary Injection Point: Post-Error Analysis
+### Secondary Injection Point Post-Error Analysis
 **Location:** After identifying errors but before generating revised answer
 
 **Rationale:** Model has acknowledged mistakes and may be receptive to metacognitive probing about why those errors occurred.
 
-### Tertiary Injection Point: Initial Answer Phase
+### Tertiary Injection Point Initial Answer Phase
 **Location:** During or immediately after first-attempt answer
 
 **Rationale:** Capture baseline confidence and context awareness before any reflection occurs.
 
 ## Baseline Performance Metrics
 
-All experiments will track:
+All experiments will track
 - **Accuracy:** % correct on first attempt, post-reflection
 - **Response length:** Token counts for answers and reflections
 - **Confidence indicators:** Self-reported certainty when present
@@ -99,10 +99,10 @@ All experiments will track:
 - [ ] Track compatibility issues or implementation decisions
 
 ### Model Configuration
-- Default model: [To be specified]
-- Temperature: [To be specified]
-- Max tokens: [To be specified]
-- System prompt: [To be specified]
+- Default model [To be specified]
+- Temperature [To be specified]
+- Max tokens [To be specified]
+- System prompt [To be specified]
 
 ## Usage
 
@@ -115,25 +115,25 @@ python baseline_runner.py --tasks ../sample_tasks/task_set_1.json --output ../ex
 ### Expected Output Format
 ```json
 {
-  "task_id": "task_001",
-  "question": "...",
-  "ground_truth": "...",
-  "initial_answer": "...",
-  "reflection": "...",
-  "revised_answer": "...",
-  "correct_initial": false,
-  "correct_revised": true,
-  "metadata": {
-    "model": "...",
-    "temperature": 0.7,
-    "timestamp": "..."
-  }
+ "task_id" "task_001",
+ "question" "...",
+ "ground_truth" "...",
+ "initial_answer" "...",
+ "reflection" "...",
+ "revised_answer" "...",
+ "correct_initial" false,
+ "correct_revised" true,
+ "metadata" {
+ "model" "...",
+ "temperature" 0.7,
+ "timestamp" "..."
+ }
 }
 ```
 
 ## Integration with Welfare Probe Experiments
 
-This baseline pipeline serves as the foundation for welfare probe experiments in [../welfare_probe_scripts/](../welfare_probe_scripts/). All modifications should:
+This baseline pipeline serves as the foundation for welfare probe experiments in [../welfare_probe_scripts/](../welfare_probe_scripts/). All modifications should
 
 1. Maintain compatibility with baseline for direct comparison
 2. Use identical task loading and evaluation logic
@@ -152,5 +152,5 @@ This baseline pipeline serves as the foundation for welfare probe experiments in
 
 ## References
 
-- Original pipeline: https://github.com/matthewrenze/self-reflection
+- Original pipeline https://github.com/matthewrenze/self-reflection
 - See [../docs/references.md](../docs/references.md) for full citation and related work

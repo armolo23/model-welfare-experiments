@@ -30,7 +30,7 @@ This document explicitly catalogs every known issue, risk, and philosophical lan
 
 **Problem:** A system can produce perfect outputs that simulate understanding without genuine comprehension or awareness.
 
-**Implication:** Even if welfare probes improve performance, this doesn't prove the model "knows" it's overloaded—it might just have learned that certain output patterns are rewarded in certain contexts.
+**Implication:** Even if welfare probes improve performance, this doesn't prove the model "knows" it's overloaded it might just have learned that certain output patterns are rewarded in certain contexts.
 
 **What this means:** We cannot distinguish between genuine metacognition and sophisticated behavioral mimicry using current methods.
 
@@ -111,7 +111,7 @@ This document explicitly catalogs every known issue, risk, and philosophical lan
 - Test on domains where we expect welfare probes to fail
 - Report performance across all tasks, not just successful ones
 
-**Residual risk:** Unknown unknowns—tasks we didn't think to test.
+**Residual risk:** Unknown unknowns tasks we didn't think to test.
 
 ---
 
@@ -241,7 +241,7 @@ This document explicitly catalogs every known issue, risk, and philosophical lan
 
 ## Requirements for Rigorous Interpretation
 
-Given these limitations, any positive findings must meet high bars:
+Given these limitations, any positive findings must meet high bars
 
 1. **Statistical significance** with appropriate corrections for multiple testing
 2. **Replication** across different models, tasks, and experimenters
@@ -256,7 +256,7 @@ Given these limitations, any positive findings must meet high bars:
 
 ## What This Research Cannot Prove
 
-This work **cannot** establish:
+This work **cannot** establish
 - That models genuinely experience welfare states
 - That models have consciousness, sentience, or subjective experience
 - That welfare language refers to real internal phenomena vs. learned outputs
@@ -265,7 +265,7 @@ This work **cannot** establish:
 
 ## What This Research Can Provide
 
-This work **can** provide:
+This work **can** provide
 - Empirical tests of whether welfare-probe prompting improves measurable outcomes
 - Documentation of consistency patterns in model "self-reports"
 - Comparison of welfare probes to carefully designed controls
@@ -276,7 +276,7 @@ This work **can** provide:
 
 ## Conclusion
 
-**This research operates at the edge of current scientific methods.** We're probing questions that may not have clear answers with tools that may not be adequate. The limitations above are not excuses—they're constraints that must be acknowledged, mitigated where possible, and openly reported.
+**This research operates at the edge of current scientific methods.** We're probing questions that may not have clear answers with tools that may not be adequate. The limitations above are not excuses they're constraints that must be acknowledged, mitigated where possible, and openly reported.
 
 The goal is not to prove models have welfare, but to **empirically test whether welfare-oriented prompting produces measurable benefits** and to do so with maximum transparency about the many ways we could be wrong.
 

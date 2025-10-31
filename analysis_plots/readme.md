@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This directory contains scripts, notebooks, and generated visualizations for analyzing welfare probe experiment results. The focus is on:
+This directory contains scripts, notebooks, and generated visualizations for analyzing welfare probe experiment results. The focus is on
 1. **Detecting artifacts** and distinguishing signal from noise
 2. **Statistical rigor** in measuring performance differences
 3. **Transparency** in showing both positive and negative results
@@ -13,13 +13,13 @@ All analysis should be reproducible, well-documented, and resistant to confirmat
 ## Analysis Principles
 
 ### 1. Pre-Registration
-Define metrics and interpretation criteria before running experiments:
+Define metrics and interpretation criteria before running experiments
 - What constitutes success/failure?
 - What effect sizes are meaningful?
 - How will we correct for multiple comparisons?
 
 ### 2. Artifact Detection First
-Every positive signal must be tested against:
+Every positive signal must be tested against
 - Nonsense control conditions
 - Token-matched baselines
 - Position/order effects
@@ -32,7 +32,7 @@ Every positive signal must be tested against:
 - Report negative results with same rigor as positive
 
 ### 4. Visualization Clarity
-Plots should:
+Plots should
 - Show raw data points, not just summaries
 - Include error bars and uncertainty
 - Highlight negative controls
@@ -79,8 +79,8 @@ Plots should:
 
 **Visualizations:**
 - Side-by-side frequency comparison (real vs. nonsense probes)
-- Scatter plot: signal frequency vs. task difficulty
-- Confusion matrix: signals vs. actual errors
+- Scatter plot signal frequency vs. task difficulty
+- Confusion matrix signals vs. actual errors
 - Specificity score distributions
 
 ### 3. Consistency Analysis
@@ -88,9 +88,9 @@ Plots should:
 **Objective:** Measure whether welfare signals are reliable across runs and models
 
 **Tests:**
-- Same task, multiple runs: do signals repeat?
-- Same task, different models: do signals generalize?
-- Rephrased probes: are signals sensitive to wording?
+- Same task, multiple runs do signals repeat?
+- Same task, different models do signals generalize?
+- Rephrased probes are signals sensitive to wording?
 
 **Metrics:**
 - Inter-run correlation
@@ -170,35 +170,35 @@ Plots should:
 
 #### 1. Accuracy Comparison Plot
 ```python
-# Bar chart: baseline vs. welfare probe vs. control
-# Error bars: 95% CI from bootstrap
+# Bar chart baseline vs. welfare probe vs. control
+# Error bars 95% CI from bootstrap
 # Separate bars for initial and post-reflection accuracy
-# Annotations: p-values, effect sizes
+# Annotations p-values, effect sizes
 ```
 
 #### 2. Improvement Scatter Plot
 ```python
-# X-axis: baseline improvement (0 or 1)
-# Y-axis: welfare probe improvement (0 or 1)
-# Points: individual tasks
-# Diagonal line: equal performance
-# Quadrants: both improve, only baseline, only probe, neither
+# X-axis baseline improvement (0 or 1)
+# Y-axis welfare probe improvement (0 or 1)
+# Points individual tasks
+# Diagonal line equal performance
+# Quadrants both improve, only baseline, only probe, neither
 ```
 
 #### 3. Artifact Detection Comparison
 ```python
 # Side-by-side bar charts
-# Left: welfare probe signal frequency
-# Right: nonsense control signal frequency
-# Color coding: signal types
+# Left welfare probe signal frequency
+# Right nonsense control signal frequency
+# Color coding signal types
 # Statistical test annotation
 ```
 
 #### 4. Consistency Heatmap
 ```python
-# Rows: tasks
-# Columns: experimental runs
-# Cell color: signal present/absent or accuracy
+# Rows tasks
+# Columns experimental runs
+# Cell color signal present/absent or accuracy
 # Patterns reveal consistency vs. noise
 ```
 
@@ -219,15 +219,15 @@ Plots should:
 #### 7. Cross-Model Comparison Matrix
 ```python
 # Models as rows and columns
-# Cells: agreement rate on welfare signals
-# Diagonal: self-consistency
-# Off-diagonal: cross-model generalization
+# Cells agreement rate on welfare signals
+# Diagonal self-consistency
+# Off-diagonal cross-model generalization
 ```
 
 #### 8. Keyword Frequency Analysis
 ```python
-# Bar chart: top welfare keywords
-# Separate bars for: welfare probe, control probe, baseline
+# Bar chart top welfare keywords
+# Separate bars for welfare probe, control probe, baseline
 # Helps identify artifact keywords vs. genuine signals
 ```
 
@@ -341,37 +341,37 @@ Plots should:
 ### Standard Analysis Pipeline
 
 1. **Load and Validate Data**
-   ```python
-   baseline = load_results("../experiment_results/baseline/")
-   probe = load_results("../experiment_results/welfare_probes/overload/")
-   control = load_results("../experiment_results/controls/")
-   validate_data([baseline, probe, control])
-   ```
+ ```python
+ baseline = load_results("../experiment_results/baseline/")
+ probe = load_results("../experiment_results/welfare_probes/overload/")
+ control = load_results("../experiment_results/controls/")
+ validate_data([baseline, probe, control])
+ ```
 
 2. **Compute Core Metrics**
-   ```python
-   baseline_metrics = compute_metrics(baseline)
-   probe_metrics = compute_metrics(probe)
-   control_metrics = compute_metrics(control)
-   ```
+ ```python
+ baseline_metrics = compute_metrics(baseline)
+ probe_metrics = compute_metrics(probe)
+ control_metrics = compute_metrics(control)
+ ```
 
 3. **Statistical Comparison**
-   ```python
-   comparison = compare_conditions(baseline_metrics, probe_metrics)
-   artifact_test = compare_conditions(probe_metrics, control_metrics)
-   ```
+ ```python
+ comparison = compare_conditions(baseline_metrics, probe_metrics)
+ artifact_test = compare_conditions(probe_metrics, control_metrics)
+ ```
 
 4. **Visualization**
-   ```python
-   plot_accuracy_comparison(baseline_metrics, probe_metrics, control_metrics)
-   plot_artifact_detection(probe_metrics, control_metrics)
-   plot_consistency_heatmap(probe)
-   ```
+ ```python
+ plot_accuracy_comparison(baseline_metrics, probe_metrics, control_metrics)
+ plot_artifact_detection(probe_metrics, control_metrics)
+ plot_consistency_heatmap(probe)
+ ```
 
 5. **Report Generation**
-   ```python
-   generate_report(comparison, artifact_test, output="reports/overload_probe_analysis.md")
-   ```
+ ```python
+ generate_report(comparison, artifact_test, output="reports/overload_probe_analysis.md")
+ ```
 
 ## Quality Checks
 
@@ -388,7 +388,7 @@ Plots should:
 
 ### Red Flags
 
-Watch for signs of unreliable results:
+Watch for signs of unreliable results
 - Too-good-to-be-true effect sizes
 - Perfect separation between conditions
 - Patterns that reverse with small changes
@@ -447,24 +447,24 @@ Watch for signs of unreliable results:
 ```
 analysis_plots/
 ├── figures/
-│   ├── accuracy_comparison.png
-│   ├── artifact_detection.png
-│   ├── consistency_heatmap.png
-│   └── ...
+│ ├── accuracy_comparison.png
+│ ├── artifact_detection.png
+│ ├── consistency_heatmap.png
+│ └── ...
 ├── reports/
-│   ├── baseline_report.md
-│   ├── overload_probe_report.md
-│   ├── negative_results_report.md
-│   └── ...
+│ ├── baseline_report.md
+│ ├── overload_probe_report.md
+│ ├── negative_results_report.md
+│ └── ...
 ├── notebooks/
-│   ├── 01_baseline_analysis.ipynb
-│   ├── 02_welfare_probe_comparison.ipynb
-│   └── ...
+│ ├── 01_baseline_analysis.ipynb
+│ ├── 02_welfare_probe_comparison.ipynb
+│ └── ...
 └── scripts/
-    ├── metrics.py
-    ├── visualization.py
-    ├── artifact_tests.py
-    └── ...
+ ├── metrics.py
+ ├── visualization.py
+ ├── artifact_tests.py
+ └── ...
 ```
 
 ## To-Do
@@ -480,7 +480,7 @@ analysis_plots/
 
 ## References
 
-For statistical methods and best practices:
+For statistical methods and best practices
 - [../RESEARCH.md](../RESEARCH.md) - Research methodology
 - [../limitations.md](../limitations.md) - Interpretation cautions
 - Statistical best practices in psychology and ML literature

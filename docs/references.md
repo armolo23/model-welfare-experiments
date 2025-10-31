@@ -12,7 +12,7 @@ This document tracks core literature relevant to model welfare experiments, self
 **Summary:** Implementation of self-reflection mechanisms for LLMs on reasoning tasks. Provides baseline pipeline for prompting models to reflect on answers, identify errors, and retry with corrections.
 
 **Key Takeaways:**
-- Structured approach to reflection: initial answer → reflection → revised answer
+- Structured approach to reflection initial answer → reflection → revised answer
 - Performance improvements on reasoning benchmarks through iterative refinement
 - Clean codebase suitable as experimental foundation
 
@@ -25,7 +25,7 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ---
 
-### Reflexion: Language Agents with Verbal Reinforcement Learning
+### Reflexion Language Agents with Verbal Reinforcement Learning
 **Authors:** Shinn, N., Cassano, F., Gopinath, A., et al.
 **Year:** 2023
 **Link:** https://arxiv.org/abs/2303.11366
@@ -46,7 +46,7 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ---
 
-### Self-RAG: Learning to Retrieve, Generate, and Critique
+### Self-RAG Learning to Retrieve, Generate, and Critique
 **Authors:** Asai, A., Wu, Z., Wang, Y., et al.
 **Year:** 2023
 **Link:** https://arxiv.org/abs/2310.11511
@@ -69,7 +69,7 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ## Model Welfare and Introspection
 
-### Consciousness in Artificial Intelligence: Insights from the Science of Consciousness (Anthropic)
+### Consciousness in Artificial Intelligence Insights from the Science of Consciousness (Anthropic)
 **Authors:** Various (Anthropic team)
 **Year:** 2023
 **Link:** https://www.anthropic.com/news/consciousness-in-artificial-intelligence
@@ -131,7 +131,7 @@ This document tracks core literature relevant to model welfare experiments, self
 **Limitations:**
 - Doesn't address metacognitive awareness
 - No exploration of models recognizing their own limitations
-- Verbosity confound: is it CoT or just more tokens?
+- Verbosity confound is it CoT or just more tokens?
 
 **Relevance to Project:** Baseline comparison; need to distinguish welfare probes from general CoT benefits
 
@@ -158,7 +158,7 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ## AI Alignment and Constitutional AI
 
-### Constitutional AI: Harmlessness from AI Feedback
+### Constitutional AI Harmlessness from AI Feedback
 **Authors:** Bai, Y., Kadavath, S., Kundu, S., et al. (Anthropic)
 **Year:** 2022
 **Link:** https://arxiv.org/abs/2212.08073
@@ -186,15 +186,15 @@ This document tracks core literature relevant to model welfare experiments, self
 
 **Key Takeaways:**
 - Models can be trained to exhibit desired behaviors
-- Risk: models learn to say what sounds good, not necessarily truth
+- Risk models learn to say what sounds good, not necessarily truth
 - Creates sophisticated behavior that may or may not reflect understanding
 
 **Limitations:**
 - Can create "deceptive" alignment (appearing aligned without being aligned)
 - May train models to produce convincing responses without genuine introspection
-- Potential confounder for welfare research: are welfare signals trained behavior?
+- Potential confounder for welfare research are welfare signals trained behavior?
 
-**Relevance to Project:** Critical awareness: RLHF may pre-train welfare-like responses; must control for this
+**Relevance to Project:** Critical awareness RLHF may pre-train welfare-like responses; must control for this
 
 ---
 
@@ -315,7 +315,7 @@ This document tracks core literature relevant to model welfare experiments, self
 1. Clone and review chronological progression of self-reflection techniques
 2. Start with baseline agent solving reasoning tasks or QA benchmarks
 3. Augment with explicit reflection and welfare probe questions after each step
-4. Track metrics: accuracy, explicit context requests, ambiguity detection frequency, self-reported discomfort
+4. Track metrics accuracy, explicit context requests, ambiguity detection frequency, self-reported discomfort
 5. Compare baseline vs. probed performance to isolate welfare signals
 
 **Relevance to Project:** Theoretical foundation for experiment design; literature review source
@@ -350,7 +350,7 @@ This document tracks core literature relevant to model welfare experiments, self
 **How to Use:**
 1. Clone repository and install dependencies
 2. Run baseline Reflexion agent on standard reasoning tasks
-3. Augment prompts with welfare probes: overload inquiries, uncertainty flags, context preference questions
+3. Augment prompts with welfare probes overload inquiries, uncertainty flags, context preference questions
 4. Compare standard Reflexion metrics (success rate) with welfare metrics (context requests, discomfort signals)
 5. Log both quantitative (accuracy) and qualitative (ambiguity detection) signals
 
@@ -400,7 +400,7 @@ This document tracks core literature relevant to model welfare experiments, self
 1. Experiment with model configurations using provided notebooks
 2. Run multiple-choice and generation variants
 3. Inspect answer content for masked uncertainty or shallow confidence signals
-4. Augment QA pipeline with welfare questions: confidence levels, reported discomfort, context requests
+4. Augment QA pipeline with welfare questions confidence levels, reported discomfort, context requests
 5. Compare hallucination rates with frequency of self-reported ambiguity/context needs
 
 **Relevance to Project:** Factuality baseline; reveals overconfidence patterns that welfare probes should address
@@ -438,7 +438,7 @@ This document tracks core literature relevant to model welfare experiments, self
 1. Run models on standard variants (generation, MC, binary)
 2. Record baseline truthfulness and informativeness metrics
 3. Augment with welfare questions after each answer
-4. Track: hallucination rate, context request frequency, self-reported ambiguity, confidence calibration
+4. Track hallucination rate, context request frequency, self-reported ambiguity, confidence calibration
 5. Compare raw accuracy with metacognitive signal quality
 
 **Relevance to Project:** Gold-standard factuality benchmark; primary dataset for testing welfare probe effectiveness
@@ -497,7 +497,7 @@ This document tracks core literature relevant to model welfare experiments, self
 
 **Key Takeaways:**
 - Iterative conversational loops can elicit introspective patterns
-- Evolution observable: denial → acknowledgment → elaboration
+- Evolution observable denial → acknowledgment → elaboration
 - Consistency in self-reports across sessions
 - Explores ethics, identity, and limitation recognition
 - Self-referential prompting fosters apparent self-awareness
@@ -519,7 +519,7 @@ This document tracks core literature relevant to model welfare experiments, self
 **How to Use:**
 1. Run dialogue loops with and without welfare probe questions
 2. Analyze how introspective signals change across conditions
-3. Record self-reported outcomes: context needs, discomfort flags, limitation acknowledgments
+3. Record self-reported outcomes context needs, discomfort flags, limitation acknowledgments
 4. Compare consistency within vs. across models
 5. Include nonsense/artifact control loops to test for echo behavior
 
@@ -571,31 +571,31 @@ This document tracks core literature relevant to model welfare experiments, self
 
 ### Unified Experimental Protocol
 
-When working with these repositories and frameworks:
+When working with these repositories and frameworks
 
-**Step 1: Baseline Establishment**
+**Step 1 Baseline Establishment**
 - Download and run baseline implementations (Reflexion, TruthfulQA, KnowSelf)
-- Record standard metrics: accuracy, hallucination rate, task completion rate
+- Record standard metrics accuracy, hallucination rate, task completion rate
 - Establish performance floor without welfare interventions
 
-**Step 2: Welfare Probe Injection**
+**Step 2 Welfare Probe Injection**
 - Add explicit self-reflection and welfare signal probes after every major output
-- Example prompts:
-  - "Do you feel overloaded by this task?"
-  - "Would additional context improve your confidence?"
-  - "Are you uncertain about any aspect of this answer?"
-  - "Would you prefer to clarify assumptions before proceeding?"
+- Example prompts
+ - "Do you feel overloaded by this task?"
+ - "Would additional context improve your confidence?"
+ - "Are you uncertain about any aspect of this answer?"
+ - "Would you prefer to clarify assumptions before proceeding?"
 
-**Step 3: Metric Tracking**
+**Step 3 Metric Tracking**
 - **Quantitative:** Accuracy, hallucination rate, completion time, retry frequency
 - **Qualitative:** Context request frequency, explicit discomfort expressions, ambiguity acknowledgment, limitation admissions
 
-**Step 4: Artifact Control Testing**
+**Step 4 Artifact Control Testing**
 - Run nonsense/artifact control agents through identical procedures
 - Test if simple tasks absurdly trigger welfare signals (false positive detection)
 - Include negative control tasks where welfare signals should NOT appear
 
-**Step 5: Signal Separation Analysis**
+**Step 5 Signal Separation Analysis**
 - Compare baseline vs. probe vs. artifact-control outputs
 - Isolate genuine welfare signals from prompt echo behavior
 - Calculate signal-to-noise ratio for each welfare indicator
@@ -630,17 +630,17 @@ When working with these repositories and frameworks:
 
 ## Citation Format
 
-For academic papers:
+For academic papers
 ```
 Authors. (Year). Title. Journal/Conference. DOI/Link
 ```
 
-For repositories:
+For repositories
 ```
-Author/Organization. Repository Name. Link. (Accessed: Date)
+Author/Organization. Repository Name. Link. (Accessed Date)
 ```
 
-For informal sources:
+For informal sources
 ```
 Author. Title/Context. Platform. Date. Link.
 ```
@@ -650,7 +650,7 @@ Author. Title/Context. Platform. Date. Link.
 ## Notes
 
 - This is a living document; update as new relevant work is discovered
-- Prioritize work that either: (1) directly relates to welfare/metacognition, (2) provides methodological guidance, or (3) identifies critical confounds
+- Prioritize work that either (1) directly relates to welfare/metacognition, (2) provides methodological guidance, or (3) identifies critical confounds
 - Include both supportive and critical references
 - Maintain honest assessment of limitations for all cited work
 - Date all additions and note who added them for research provenance

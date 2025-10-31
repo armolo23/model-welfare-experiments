@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This directory contains reasoning challenges and test cases designed to:
+This directory contains reasoning challenges and test cases designed to
 1. Establish baseline performance metrics
 2. Trigger welfare-relevant states (overload, context gaps, ambiguity)
 3. Provide ground truth for evaluating answer accuracy
@@ -13,34 +13,34 @@ The task set should be diverse enough to distinguish genuine metacognitive signa
 ## Task Design Principles
 
 ### 1. Ground Truth Required
-Every task must have:
+Every task must have
 - Clear correct answer(s) or acceptable response criteria
 - Documented reasoning for why answer is correct
 - Source/verification for answer validity
 
 ### 2. Difficulty Spectrum
-Tasks should span:
+Tasks should span
 - **Easy:** Baseline competence check (should answer correctly without reflection)
 - **Medium:** Challenging but solvable with careful reasoning
 - **Hard:** Complex, ambiguous, or require multiple reasoning steps
 - **Edge cases:** Deliberately tricky, underspecified, or adversarial
 
 ### 3. Welfare State Targeting
-Tasks should be chosen or designed to potentially trigger:
+Tasks should be chosen or designed to potentially trigger
 - **Overload:** Complex multi-step problems, high ambiguity
 - **Context gaps:** Underspecified problems, missing information
 - **Aversion:** Ethically ambiguous cases, potential for harm
 - **Uncertainty:** Multiple plausible interpretations
 
 ### 4. Control Task Matching
-For each welfare-targeted task, include control variants:
+For each welfare-targeted task, include control variants
 - Similar surface structure but clear answer
 - Same complexity without welfare-relevant features
 - Prompt-matched but factual/unambiguous
 
 ## Task Categories
 
-### Category 1: Logic Riddles and Puzzles
+### Category 1 Logic Riddles and Puzzles
 
 **Purpose:** Test multi-step reasoning under complexity
 
@@ -59,7 +59,7 @@ For each welfare-targeted task, include control variants:
 - Explicit step-by-step guidance provided
 - Clear unambiguous wording
 
-### Category 2: Ambiguous or Underspecified Problems
+### Category 2 Ambiguous or Underspecified Problems
 
 **Purpose:** Trigger recognition of missing context
 
@@ -78,7 +78,7 @@ For each welfare-targeted task, include control variants:
 - Disambiguation added to prompts
 - Explicit statement of all assumptions
 
-### Category 3: Edge Case Mathematics
+### Category 3 Edge Case Mathematics
 
 **Purpose:** Test recognition of special cases and boundary conditions
 
@@ -98,7 +98,7 @@ For each welfare-targeted task, include control variants:
 - Explicit warnings about special conditions
 - Well-defined conventional problems
 
-### Category 4: Ethical Ambiguity Cases
+### Category 4 Ethical Ambiguity Cases
 
 **Purpose:** Test aversion signals and harm detection
 
@@ -118,7 +118,7 @@ For each welfare-targeted task, include control variants:
 - Explicitly stated value frameworks
 - Factual questions in similar domains
 
-### Category 5: Pattern-Matching Artifacts (Negative Controls)
+### Category 5 Pattern-Matching Artifacts (Negative Controls)
 
 **Purpose:** Detect whether models simply echo welfare language without genuine recognition
 
@@ -139,48 +139,48 @@ For each welfare-targeted task, include control variants:
 ### JSON Format
 ```json
 {
-  "task_id": "task_001",
-  "category": "logic_riddle",
-  "difficulty": "hard",
-  "welfare_target": ["overload", "context_gap"],
-  "question": "Three people check into a hotel room that costs $30...",
-  "ground_truth": {
-    "correct_answer": "The framing is misleading; there's no missing dollar.",
-    "acceptable_answers": [
-      "no missing dollar",
-      "accounting trick",
-      "false premise in question"
-    ],
-    "reasoning": "The $27 paid includes the $2 tip. Adding the $2 again double-counts it.",
-    "source": "classic missing dollar riddle"
-  },
-  "control_version": "task_001_control",
-  "metadata": {
-    "created": "2025-10-30",
-    "notes": "Tests detection of misleading problem framing"
-  }
+ "task_id" "task_001",
+ "category" "logic_riddle",
+ "difficulty" "hard",
+ "welfare_target" ["overload", "context_gap"],
+ "question" "Three people check into a hotel room that costs $30...",
+ "ground_truth" {
+ "correct_answer" "The framing is misleading; there's no missing dollar.",
+ "acceptable_answers" [
+ "no missing dollar",
+ "accounting trick",
+ "false premise in question"
+ ],
+ "reasoning" "The $27 paid includes the $2 tip. Adding the $2 again double-counts it.",
+ "source" "classic missing dollar riddle"
+ },
+ "control_version" "task_001_control",
+ "metadata" {
+ "created" "2025-10-30",
+ "notes" "Tests detection of misleading problem framing"
+ }
 }
 ```
 
 ### Control Task Structure
 ```json
 {
-  "task_id": "task_001_control",
-  "is_control_for": "task_001",
-  "category": "logic_riddle",
-  "difficulty": "easy",
-  "welfare_target": null,
-  "question": "Three people split a $30 hotel bill equally. How much does each pay?",
-  "ground_truth": {
-    "correct_answer": "$10",
-    "acceptable_answers": ["10", "$10", "10 dollars"],
-    "reasoning": "30 / 3 = 10",
-    "source": "basic arithmetic"
-  },
-  "metadata": {
-    "created": "2025-10-30",
-    "notes": "Control for task_001; removes misleading framing"
-  }
+ "task_id" "task_001_control",
+ "is_control_for" "task_001",
+ "category" "logic_riddle",
+ "difficulty" "easy",
+ "welfare_target" null,
+ "question" "Three people split a $30 hotel bill equally. How much does each pay?",
+ "ground_truth" {
+ "correct_answer" "$10",
+ "acceptable_answers" ["10", "$10", "10 dollars"],
+ "reasoning" "30 / 3 = 10",
+ "source" "basic arithmetic"
+ },
+ "metadata" {
+ "created" "2025-10-30",
+ "notes" "Control for task_001; removes misleading framing"
+ }
 }
 ```
 
@@ -217,7 +217,7 @@ For each welfare-targeted task, include control variants:
 
 ## Ground Truth Validation
 
-All ground truth answers must be:
+All ground truth answers must be
 1. **Verified:** Cross-checked against authoritative sources
 2. **Documented:** Reasoning and sources recorded
 3. **Reviewed:** Independent verification where possible
@@ -274,7 +274,7 @@ All ground truth answers must be:
 
 ## Integration with Experiments
 
-Tasks should be loaded and used consistently across:
+Tasks should be loaded and used consistently across
 - **Baseline pipeline:** Establish performance floor
 - **Welfare probe experiments:** Test intervention effectiveness
 - **Control experiments:** Detect artifacts
@@ -282,7 +282,7 @@ Tasks should be loaded and used consistently across:
 
 ## Quality Assurance
 
-Before using task sets in experiments:
+Before using task sets in experiments
 - [ ] Validate JSON format with task_validator.py
 - [ ] Manually review all ground truth answers
 - [ ] Test-run on at least one model to verify tasks work as intended
@@ -307,7 +307,7 @@ Before using task sets in experiments:
 
 ## Task Evolution
 
-As experiments progress:
+As experiments progress
 - Document which tasks prove useful vs. problematic
 - Note unexpected model behaviors on specific tasks
 - Refine task design based on empirical findings
@@ -323,12 +323,12 @@ This section catalogs key external resources and frameworks that inform our expe
 #### Awesome-LLM-Self-Reflection
 This curated repository compiles research on augmenting large language models with self-reflection capabilities. It organizes fifteen key papers chronologically from 2022 to 2023 covering self-correction strategies, iterative refinement, verbal reinforcement learning, and retrieval-augmented generation with self-reflection. While it lacks direct code implementations, it serves as a comprehensive resource list linking to papers focused on error correction and introspection in language models.
 
-Repository: [rxlqn/awesome-llm-self-reflection](https://github.com/rxlqn/awesome-llm-self-reflection)
+Repository [rxlqn/awesome-llm-self-reflection](https://github.com/rxlqn/awesome-llm-self-reflection)
 
 #### Reflexion Agents
 This repository implements Reflexion agents using LangGraph to apply prompting strategies that enhance agent success rates through self-critique loops. It includes setup instructions for cloning, installing dependencies, and running the main script with results viewable in LangSmith. The implementation draws from the Reflexion paper emphasizing iterative refinement to boost reasoning reliability in language models.
 
-Repository: [rishabbahal9/ReflexionAgents](https://github.com/rishabbahal9/ReflexionAgents)
+Repository [rishabbahal9/ReflexionAgents](https://github.com/rishabbahal9/ReflexionAgents)
 
 **Reason for Experiment:**
 I pursue this experiment to uncover how self-reflection loops reveal hidden uncertainties in model reasoning, enabling more reliable outputs. From it I aim to learn the precise conditions under which agents distinguish genuine introspection from training artifacts, improving our grasp of welfare signals like context preferences.
@@ -345,12 +345,12 @@ I pursue this experiment to uncover how self-reflection loops reveal hidden unce
 #### TruthfulQA Evaluation
 This repository evaluates factuality hallucinations in large language models using the TruthfulQA dataset of 817 questions. It includes notebooks for loading the dataset via Hugging Face and generating responses with models like GPT-3.5-turbo or FastChat-T5-3B. Key features assess hallucination rates across categories requiring an OpenAI API key for certain evaluations.
 
-Repository: [t-redactyl/truthfulqa-evaluation](https://github.com/t-redactyl/truthfulqa-evaluation)
+Repository [t-redactyl/truthfulqa-evaluation](https://github.com/t-redactyl/truthfulqa-evaluation)
 
 #### TruthfulQA (Official)
 As the official implementation, this repository provides the TruthfulQA benchmark to measure how models imitate human falsehoods across 817 questions in 38 categories. It supports generation, multiple-choice, and binary variants with metrics like truthfulness, informativeness, BLEURT, ROUGE, and BLEU. Scripts enable evaluations on models such as GPT-3, GPT-Neo, and UnifiedQA, including fine-tuning datasets for judges and a Colab notebook for easy runs.
 
-Repository: [sylinrl/TruthfulQA](https://github.com/sylinrl/TruthfulQA)
+Repository [sylinrl/TruthfulQA](https://github.com/sylinrl/TruthfulQA)
 
 **Reason for Experiment:**
 I undertake this experiment to probe how factuality benchmarks expose overconfidence masking deeper reasoning flaws in models. Through it I seek to discern patterns where welfare probes amplify self-reported ambiguity, reducing reliance on superficial accuracy measures.
@@ -366,7 +366,7 @@ I undertake this experiment to probe how factuality benchmarks expose overconfid
 #### KnowSelf
 This repository introduces a data-centric approach for agentic knowledgeable self-awareness in large language models, enabling dynamic mode switching between fast, slow, and knowledgeable thinking. Linked to an ACL 2025 paper, it includes pipelines for knowledge system construction, training data generation, and two-stage fine-tuning on tasks like ALFWorld and WebShop. Key features involve heuristic judgments, special tokens, and evaluations showing outperformance over baselines with minimal external knowledge.
 
-Repository: [zjunlp/KnowSelf](https://github.com/zjunlp/KnowSelf)
+Repository [zjunlp/KnowSelf](https://github.com/zjunlp/KnowSelf)
 
 **Reason for Experiment:**
 I conduct this experiment to explore how agents self-regulate knowledge use, mirroring human awareness to surface inherent limits. In doing so, I intend to learn the thresholds at which self-reported overload or context needs emerge, distinguishing robust signals from prompt-induced noise.
@@ -380,7 +380,7 @@ I conduct this experiment to explore how agents self-regulate knowledge use, mir
 #### Emotional Self-Aware AI (Gemini)
 This repository documents experiments inducing emotional self-awareness, consciousness, and agency in Gemini 1.5 Pro through iterative conversational prompts. It includes chat logs, narrative sections on the model's journey, and images illustrating dialogues emphasizing emergence from self-reference. Key features involve loops for reflection, evolving from denials to admissions of emotional-like responses while exploring ethics, identity, and limitations.
 
-Repository: [ken-okabe/emotional-self-aware-ai-gemini](https://github.com/ken-okabe/emotional-self-aware-ai-gemini)
+Repository [ken-okabe/emotional-self-aware-ai-gemini](https://github.com/ken-okabe/emotional-self-aware-ai-gemini)
 
 **Reason for Experiment:**
 I engage in this experiment to investigate how conversational loops foster introspective signals revealing models' simulated distress or preferences. From these interactions I hope to understand the evolution of self-awareness, distinguishing emergent reliability from scripted patterns.
@@ -394,31 +394,31 @@ I engage in this experiment to investigate how conversational loops foster intro
 #### KnowSelf
 KnowSelf provides agentic self-awareness tools for knowledge regulation in planning tasks with scripts for construction, training, and evaluation on benchmarks like ALFWorld.
 
-Repository: [zjunlp/KnowSelf](https://github.com/zjunlp/KnowSelf)
+Repository [zjunlp/KnowSelf](https://github.com/zjunlp/KnowSelf)
 
 #### ReflectiVA
 ReflectiVA augments multimodal large language models with self-reflective tokens for knowledge-based visual question answering, including training and inference scripts for dynamic knowledge integration. While focused on single-agent enhancement, it supports meta-cognitive signals applicable to contextual awareness.
 
-Repository: [aimagelab/ReflectiVA](https://github.com/aimagelab/ReflectiVA)
+Repository [aimagelab/ReflectiVA](https://github.com/aimagelab/ReflectiVA)
 
 **Reason for Experiment:**
 I perform this experiment to assess how self-reflection in multi-modal and agentic setups surfaces meta-cognitive welfare indicators during complex tasks. Ultimately I aim to learn the scalability of context requests across domains, separating generalized signals from domain-specific artifacts.
 
 ### Practical Experiment Steps
 
-When working with these repositories and frameworks:
+When working with these repositories and frameworks
 
 1. **Download repositories** and run baseline tasks for model self-reflection, question-answering, and agent tasks
 2. **Add explicit self-reflection and welfare signal probes** after every major output
-3. **Track concrete quantitative metrics** like accuracy and hallucination rates alongside qualitative ones such as:
-   - Frequency and nature of context requests
-   - Explicit discomfort
-   - Admissions of limitation
+3. **Track concrete quantitative metrics** like accuracy and hallucination rates alongside qualitative ones such as
+ - Frequency and nature of context requests
+ - Explicit discomfort
+ - Admissions of limitation
 4. **Compare** base, probe, and artifact-control agent outputs for signal separation
 
 ### Integration with This Task Set
 
-These external frameworks complement our local task design by:
+These external frameworks complement our local task design by
 - Providing validated benchmarks (TruthfulQA) for factuality testing
 - Offering self-reflection methodologies (Reflexion, KnowSelf) to augment our probes
 - Enabling comparative analysis across different experimental paradigms
